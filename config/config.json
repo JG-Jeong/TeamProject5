@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "4321aaaa",
+    "database": "Project5",
+    "host": "express-database.c5m17pe7xucp.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "4321aaaa",
+    "database": "Project5_test",
+    "host": "express-database.c5m17pe7xucp.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <title>과제4 정정길</title>
+</head>
+
+<script>
+
+    function sign_in () {
+        let nickname = $ ("#inputnickname").val ();
+        let password = $ ("#inputPassword").val ();
+        $.ajax ({
+            type : "POST",
+            url : "/api/login",
+            data : {
+                nickname : nickname,
+                password : password,
+            },
+            success : function (response) {
+                localStorage.setItem ("token", response.token);
+                window.location.replace ("/");
+            },
+            error : function (error) {
+                alert (error.responseJSON.errorMessage);
+            },
+        });
+    }
+
+
+</script>
+
+
+<body>
+
+<div class="wrap">
+    <div class="card-body">
+        <input type="text" placeholder="아이디" aria-label="nickname" id="inputnickname"/>
+    </div>
+    <div>
+        <input type="password" placeholder="비밀번호" aria-label="Password" id="inputPassword"/>
+    </div>
+</div>
+
+<button type="button" onclick="sign_in()">
+    로그인
+</button>
+
+<button type="button" onclick="window.location.href='/register.html'">
+    회원가입
+</button>
+
+</div>
+
+</body>
+
+
+</html>
