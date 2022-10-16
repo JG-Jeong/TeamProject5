@@ -26,16 +26,17 @@ class PostService {
         });
     }
     
-    createPost = async (nickname, password, title, content) => {
+    createPost = async (userAccountId, nickname, title, content, image) => {
         // 저장소(Repository)에게 데이터를 요청합니다.
-        const createPostData = await this.postRepository.createPost(nickname, password, title, content);
+        const createPostData = await this.postRepository.createPost(userAccountId, nickname, title, content, image);
         
         // 비즈니스 로직을 수행한 후 사용자에게 보여줄 데이터를 가공합니다.
         return {
-            postId: createPostData.null,
+            userAccountId : createPostData.userAccountId,
             nickname: createPostData.nickname,
             title: createPostData.title,
             content: createPostData.content,
+            image: createPostData.image,
             createdAt: createPostData.createdAt,
             updatedAt: createPostData.updatedAt,
         };
