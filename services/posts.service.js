@@ -1,7 +1,7 @@
 // services/posts.service.js
 
 const PostRepository = require('../repositories/posts.repository');
-
+/1234
 class PostService {
     postRepository = new PostRepository();
     
